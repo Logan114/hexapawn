@@ -11,8 +11,11 @@ export default class JatekTer {
         this.#allapotLista = allapotLista;
         this.#elemLista = elemLista;
         this.#szuloElem = szuloElem;
+        this.#trigger(parasztkattintas) //legalább nem vakítás
     }
-
+    #trigger(esemenynev) {
+        this.#elemLista.forEach(elem => elem.addEventListener('click', () => window.dispatchEvent(new CustomEvent(esemenynev, { detail: elem.id }))));
+    }
     jatekter() {
         let txt = "";
         for (let i = 0; i < 9; i++) {
@@ -21,20 +24,19 @@ export default class JatekTer {
             } else if (i >= 6) {
                 txt += this.parasztElhelyezes(i, "w", "bp.jpg");
             } else {
-                txt += `<div class="kocka,mezo${i}  style="border: 5px solid black;""> </div>`; //CSSre nem reagál, késő van
+                txt += `<div class="kocka,mezo${i}  style="border: 5px solid black;""></div>`; //eskü műküdik Else-ben
             }
         }
         this.#szuloElem.append(txt);
     }
 
     parasztElhelyezes(i, szin, kep) {
-        return `<div class="kocka,mezo${i},${szin}${i}"  style="border: 5px solid black;"><img src="${kep}" alt="${szin}"></div>`;
+        return `<div class="kocka,mezo${i},${szin}${i}"  style="border: 5px solid black;"><img src="${kep}" alt="${szin}"></div>`;//CSSre nem reagál, késő van már ahhoz hogy ezzel foglalkozzak
     }
-
-    lepesekkeresese(kivalasztottIndex) {
-        console.log(`Lehetséges lépések keresése a(z) ${kivalasztottIndex} indexű bábuhoz`);
+/*
+    lepesekkeresese() {
     }
-
+*/
     init() {
         this.#db = 0;
         this.#allapotLista = [];
@@ -42,9 +44,8 @@ export default class JatekTer {
         this.#lepes = 0;
         this.#szuloElem.empty();
     }
-
+/*
     ellenorzes() {
-        console.log('Győzelem ellenőrzése');
-        return 0;
     }
+    */
 }
