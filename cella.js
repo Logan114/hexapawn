@@ -6,8 +6,7 @@
         constructor(id, adat, szuloElem) {
             this.#id = id;
             this.#adat = adat;
-            this.#divElem = this.#letrehozas(szuloElem);
-            
+
         }
 
         #letrehozas(szuloElem) {

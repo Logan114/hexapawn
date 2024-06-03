@@ -1,3 +1,4 @@
+import Cella from "./cella.js";
 export default class JatekTer {
     #db;
     #allapotLista;
@@ -10,18 +11,18 @@ export default class JatekTer {
         this.#allapotLista = allapotLista;
         this.#elemLista = elemLista;
         this.#szuloElem = szuloElem;
-        this.#szuloElem.on("click", () => {
-            this.#trigger("parasztkattintas");
-        });
-    }
+        this.#szuloElem.on("click", ()=>{
 
+            this.#trigger("parasztkattintas") //legalább nem vakítás
+        })
+    }
     #trigger(esemenynev) {
         this.#elemLista.forEach(elem => elem.addEventListener('click', () => {
             console.log("Kattintott elem:", elem.id);
             window.dispatchEvent(new CustomEvent(esemenynev, { detail: elem.id }));
         }));
     }
-
+    
     jatekter() {
         let txt = "";
         for (let i = 0; i < 9; i++) {
@@ -30,16 +31,19 @@ export default class JatekTer {
             } else if (i >= 6) {
                 txt += this.parasztElhelyezes(i, "w", "bp.jpg");
             } else {
-                txt += `<div class="kocka,mezo${i}  style="border: 5px solid black;""></div>`;
+                txt += `<div class="kocka,mezo${i}  style="border: 5px solid black;""></div>`; //eskü műküdik Else-ben
             }
         }
         this.#szuloElem.append(txt);
     }
 
     parasztElhelyezes(i, szin, kep) {
-        return `<div class="kocka,mezo${i},${szin}${i}"  style="border: 5px solid black;"><img src="${kep}" alt="${szin}"></div>`;
+        return `<div class="kocka mezo${i},${szin}${i}"  style="border: 5px solid black;"><img src="${kep}" alt="${szin}"></div>`;//CSSre nem reagál, késő van már ahhoz hogy ezzel foglalkozzak
     }
-
+/*
+    lepesekkeresese() {
+    }
+*/
     init() {
         this.#db = 0;
         this.#allapotLista = [];
@@ -47,4 +51,8 @@ export default class JatekTer {
         this.#lepes = 0;
         this.#szuloElem.empty();
     }
+/*
+    ellenorzes() {
+    }
+    */
 }
