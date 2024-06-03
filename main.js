@@ -1,6 +1,4 @@
 import JatekTer from "./jatekter.js";
-
-$(document).ready(() => {
     const szuloElem = $(".jatekter");
     const jatekter = new JatekTer(0, [], [], szuloElem);
 
@@ -8,8 +6,6 @@ $(document).ready(() => {
 
     jatekter.jatekter();
 
-    jatekter.lepesekkeresese(0);
-
-    const győzelem = jatekter.ellenorzes();
-    console.log(`Győzelmi állapot: ${győzelem}`);
-});
+$(window).on("parasztkattintas",(event)=>{
+    console.log(event.detail)
+})

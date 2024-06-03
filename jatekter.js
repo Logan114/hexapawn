@@ -11,7 +11,10 @@ export default class JatekTer {
         this.#allapotLista = allapotLista;
         this.#elemLista = elemLista;
         this.#szuloElem = szuloElem;
-        this.#trigger(parasztkattintas) //legalább nem vakítás
+        this.#szuloElem.on("click", ()=>{
+
+            this.#trigger("parasztkattintas") //legalább nem vakítás
+        })
     }
     #trigger(esemenynev) {
         this.#elemLista.forEach(elem => elem.addEventListener('click', () => window.dispatchEvent(new CustomEvent(esemenynev, { detail: elem.id }))));
