@@ -5,7 +5,9 @@ import JatekTer from "./jatekter.js";
     jatekter.init();
 
     jatekter.jatekter();
-
-$(window).on("parasztkattintas",(event)=>{
-    console.log(event.detail)
-})
+    
+    $(window).on("parasztkattintas",(event)=>{
+        console.log("Kattintott elem:", event.detail); // Objektum konzolra írása
+    })
+    
+    
