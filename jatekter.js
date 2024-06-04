@@ -42,6 +42,7 @@ export default class JatekTer {
     }
 /*
     lepesekkeresese() {
+
     }
 */
     init() {
@@ -55,4 +56,7 @@ export default class JatekTer {
     ellenorzes() {
     }
     */
+   //jó, nem érdekel hogy nem jó a trigger, legalább az elmélet látszódjon
+   //
+   
 }
