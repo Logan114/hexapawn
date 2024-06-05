@@ -22,6 +22,8 @@
 <p class="paragraph-P1"><span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn0" href="#body_ftn0">1</a></span>AI segítségét kellett hozzá használnom</p>
 
 <p class="paragraph-P1"><span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn1" href="#body_ftn1">2</a></span>A színeket egy darab betűvel akartam jelölni, mivel a Fehér és a Fekete ugyanúgy kezdődik maradtam az angol Black és White-nál</p>
+<br>
+<p>Libreoffice office szöveg HTML exporttal készült a readme</p>
 </body>
 
 </html>
